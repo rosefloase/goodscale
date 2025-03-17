@@ -1,0 +1,17 @@
+{
+  "tiers": [{
+		"psychonauts":[
+				{"thing":"psychonauts"}
+			],
+		"pikmin":[
+			{"thing":"pikmin 1"}
+			],
+		"evan":[
+			{"thing":"neon genesis evangelion"}
+			],		
+		"nitw":[
+			{"thing":"night in the woods"},
+			{"thing":"homestuck"}
+			]
+		}]
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>the good scale (tm)</title>
+		<style>
+			body{
+				background-color: white;
+				margin: auto;
+				text-align: center;
+				font-family: Courier New;
+			}
+			  @media (max-width: 1000px) {
+				a{
+					font-size: 0.5in;
+				}
+				#swfwrapper{
+					width: 100vw; max-width: 100%; height: unset; max-height: unset;
+				}
+			}
+
+  .container{
+  max-width: 60vw;
+  margin: auto;
+  }
+  .contained{
+  display: inline-block;
+  width: 23%;
+  }
+		</style>
+		
+		<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+		<script>
+			window.RufflePlayer = window.RufflePlayer || {};
+			window.RufflePlayer.config = {
+				"preferredRenderer": "canvas",
+				"quality":"low",
+				"autoplay":"on",
+				"unmuteOverlay":"hidden",
+				"letterbox":"off",
+				"showSwfDownload":true,
+				"splashScreen":false,
+				"menu": false,
+				"allowFullscreen": false,
+				"wmode":"transparent",
+				"allowScriptAccess": true
+			};
+		</script>
+	</head>
+	<body>
+		<div style="position: absolute; display: block; z-index: 20; right: 0;">
+			<a href=index.html>home</a>
+		</div>
+	<div style="transform: translateX(-20vw)">
+		<script src=/js/swfobject.js defer></script>
+		<div id="swfwrapper" style="position: relative; bottom: 0; overflow: hidden; margin: auto; text-align: center; width: 60vw; aspect-ratio: 2.51/1;">
+			<div id=swfdiv>
+
+			</div>
+		</div>
+			
+		<div class=container>
+			<div class=contained id="psy">
+				<a>psychonauts</a>
+			</div>
+			<div class=contained id="pik">
+				<a>pikmin</a>
+			</div>
+			<div class=contained id="evan">
+				<p>neon genesis evangelion</p>
+			</div>
+			<div class=contained id="nitw">
+				<p>night in the woods</p>
+			</div>
+		</div>	
+
+		<script>
+			setTimeout( callbackFunction, 1000 );
+				function callbackFunction(){
+				var att = { data:"goodscale.swf", width:"100%", height:"100%" };
+				var par = { shit:"foo=bar" };
+				var id = "swfdiv";
+				swfobject.createSWF(att, par, id);
+			}
+		
+			/*let params = new URLSearchParams(location.search);
+			
+			var stateObj = { foo: "bar" };
+			var glojson; 
+			var thoughts;
+			var json;
+			var index;
+				fetch("thoughts.json", {cache: "no-cache"})
+				.then((response) => response.json())
+				.then((json) => glojson = json)
+				.then((json) => thoughts = glojson.thoughts)
+				.then((pages) => start(json));
+
+			function start(){
+				if (params.get("t") == null || params.get("t") > (thoughts.length -1) || params.get("t") < 0){
+					index = thoughts.length -1;
+					history.pushState(stateObj, "page 2", "thoughts?t="+index);
+				}
+				else{
+					index = parseInt(params.get("t"));
+				}
+				console.log(index.toString());
+				var att = { data:"jadethink.swf", width:"100%", height:"100%" };
+				var par = { flashVars:"text="+thoughts[index].text};
+				var id = "swfdiv";
+				swfobject.createSWF(att, par, id);
+			}
+			
+			function itsdone(){
+				console.log("it's done");
+				makeclickers();
+			}
+			
+			function makeclickers(){
+				var prev = index - 1;
+				var next = index + 1;
+				
+				if (prev in thoughts){
+					document.getElementById("prev").style.display = "inline";
+				}
+				else{
+					document.getElementById("prev").style.display = "none";
+				}
+				
+				if (next in thoughts){
+					document.getElementById("next").style.display = "inline";
+				}
+				else{
+					document.getElementById("next").style.display = "none";
+				}
+
+			}
+			
+			function changeurl(forward){
+				if (forward == true){
+					index += 1; 
+				}
+				else{
+					index -= 1;				
+				}
+				makeclickers();
+				history.pushState(stateObj, "page 2", "thoughts?t="+index);
+				
+				var swfdiv = document.getElementById("swfdiv");
+				swfdiv.changetext(thoughts[index].text);
+			}
+			
+			*/
+		</script>
+	</body>
+</html>
