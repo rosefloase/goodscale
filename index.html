@@ -48,8 +48,8 @@
 		</script>
 	</head>
 	<body>
-		<div style="position: absolute; display: block; z-index: 20; right: 0; text-align: right; max-width: 40vw;">
-			<a href=index.html>home</a>
+		<div style="position: absolute; display: block; z-index: 20; right: 0; text-align: left; max-width: 40vw;">
+			<a href=index.html style="text-align: right; float: right;">home</a>
 			
 			<h1 id="bigtitle"></h1>
 			<p id="bigdescription"></p>
@@ -115,7 +115,7 @@
 				tiernumber += 1;
 
 				if(tiernumber < tier.length){
-					makerow(tier, target);
+					makerow(tier, target, texttier);
 				}
 				else{
 					tiernumber = 0;
