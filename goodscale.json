@@ -1,17 +1,20 @@
 {
   "tiers": [{
-		"psychonauts":[
-				{"thing":"psychonauts"}
+		"psy":[
+				{"name":"psychonauts",
+				"description":"woohoo i love testing!!!"}
 			],
 		"pikmin":[
-			{"thing":"pikmin 1"}
+				{"name":"pikmin 1"}
 			],
 		"evan":[
-			{"thing":"neon genesis evangelion"}
+				{"name":"neon genesis evangelion"},
+				{"name":"pikmin 2"},
+				{"name":"american idiot"}
 			],		
 		"nitw":[
-			{"thing":"night in the woods"},
-			{"thing":"homestuck"}
+				{"name":"night in the woods"},
+				{"name":"homestuck"}
 			]
 		}]
 }

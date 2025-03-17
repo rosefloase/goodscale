@@ -25,6 +25,7 @@
   .contained{
   display: inline-block;
   width: 23%;
+  vertical-align: top;
   }
 		</style>
 		
@@ -60,16 +61,12 @@
 			
 		<div class=container>
 			<div class=contained id="psy">
-				<a>psychonauts</a>
 			</div>
-			<div class=contained id="pik">
-				<a>pikmin</a>
+			<div class=contained id="pikmin">
 			</div>
 			<div class=contained id="evan">
-				<p>neon genesis evangelion</p>
 			</div>
 			<div class=contained id="nitw">
-				<p>night in the woods</p>
 			</div>
 		</div>	
 
@@ -80,7 +77,47 @@
 				var par = { shit:"foo=bar" };
 				var id = "swfdiv";
 				swfobject.createSWF(att, par, id);
-			}
+			} 
+		
+			var tiernumber = 0;
+			var firsttime = true;
+
+			var glojson; 
+			var tiers;
+			var json;
+			var index;
+				fetch("goodscale.json", {cache: "no-cache"})
+				.then((response) => response.json())
+				.then((json) => glojson = json)
+				.then((json) => tiers = glojson.tiers[0])
+				.then((pages) => start(json));
+
+			function start(json){
+				makerow(tiers.nitw, document.getElementById("nitw"));
+				makerow(tiers.evan, document.getElementById("evan"));
+				makerow(tiers.pikmin, document.getElementById("pikmin"));
+				makerow(tiers.psy, document.getElementById("psy"));
+			}			
+
+			function makerow(tier, target){	
+				var newthing = document.createElement("a");
+				newthing.innerHTML = tier[tiernumber].name;
+				newthing.style = "display:block;";
+				if(tier[tiernumber].description != null){
+					newthing.href = "javascript:()";
+				}
+				target.appendChild(newthing);
+
+				tiernumber += 1;
+
+				if(tiernumber < tier.length){
+					makerow(tier, target);
+				}
+				else{
+					tiernumber = 0;
+					firsttime = true;
+				}
+			} 
 		
 			/*let params = new URLSearchParams(location.search);
 			
