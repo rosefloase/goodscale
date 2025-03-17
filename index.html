@@ -48,8 +48,11 @@
 		</script>
 	</head>
 	<body>
-		<div style="position: absolute; display: block; z-index: 20; right: 0;">
+		<div style="position: absolute; display: block; z-index: 20; right: 0; text-align: right;">
 			<a href=index.html>home</a>
+			
+			<h1 id="bigtitle"></h1>
+			<p id="bigdescription"></p>
 		</div>
 	<div style="transform: translateX(-20vw)">
 		<script src=/js/swfobject.js defer></script>
@@ -93,18 +96,19 @@
 				.then((pages) => start(json));
 
 			function start(json){
-				makerow(tiers.nitw, document.getElementById("nitw"));
-				makerow(tiers.evan, document.getElementById("evan"));
-				makerow(tiers.pikmin, document.getElementById("pikmin"));
-				makerow(tiers.psy, document.getElementById("psy"));
+				makerow(tiers.nitw, document.getElementById("nitw"), "nitw");
+				makerow(tiers.evan, document.getElementById("evan"), "evan");
+				makerow(tiers.pikmin, document.getElementById("pikmin"), "pikmin");
+				makerow(tiers.psy, document.getElementById("psy"), "psy");
 			}			
 
-			function makerow(tier, target){	
+			function makerow(tier, target, texttier){	
 				var newthing = document.createElement("a");
 				newthing.innerHTML = tier[tiernumber].name;
 				newthing.style = "display:block;";
 				if(tier[tiernumber].description != null){
-					newthing.href = "javascript:()";
+					console.log(texttier);
+					newthing.href = "javascript:checkthing(tiers."+texttier+"["+tiernumber+"])";
 				}
 				target.appendChild(newthing);
 
@@ -118,6 +122,11 @@
 					firsttime = true;
 				}
 			} 
+			
+			function checkthing(thing){
+				document.getElementById("bigtitle").innerHTML = (thing.name);
+				document.getElementById("bigdescription").innerHTML = (thing.description);
+			}
 		
 			/*let params = new URLSearchParams(location.search);
 			
